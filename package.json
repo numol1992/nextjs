@@ -1,11 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "next build && datadog-ci sourcemaps upload .next/static/chunks --service=flutter_web_nm --release-version=1.0.0 --minified-path-prefix=/static/chunks",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "dd": "datadog-ci sourcemaps upload .next/static/chunks --service=flutter_web_nm --release-version=1.0.0 --minified-path-prefix=/static/chunks"
   },
   "dependencies": {
+    "@datadog/browser-rum": "^5.23.3",
+    "@datadog/datadog-ci": "^2.42.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0"
